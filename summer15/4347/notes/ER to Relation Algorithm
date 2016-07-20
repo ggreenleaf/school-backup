@@ -1,0 +1,86 @@
+ER > relational mapping algorithm
+Step 1.
+	Mapping of regular entity types 
+		for each regular entity type E, createa a relation R that includes all the simple attributes of E
+	N relations for N entities
+
+Step 2.
+	Mapping of weak entity types
+		For each weak entity type W, create a realtion R
+		and include all simple attributes of the entity type W as attribute of R
+	Include primary key attribute of onwer as foreign key attributes of R
+	primary key of R is the combination of the primary key(s) of owners(s) and the partial key of the weak entity type W, if any. 
+
+Step 3.
+	Mapping of Binary 1:1 Relationships
+		For each binary 1:1 relationship type
+			identify relations that correspond to entity types participating in R
+		Possible approaches
+			Foreign key approach (used most of the time)
+				When entity S and entity T are in a 1:1 relationship R
+				Choose one of the relations say S and include as a foreign key in S the primary key of T. Choose the entity type with total participation in R in the role of S. Include all the simple attribute of the 1:1 relationship type  R as attributes of S
+			Merged relationship approach
+				merge the two entity types and the relationship into a single relation
+				This is possible when both participations are total, as this would indicate that hte two tables will have the exact same number of tuples at all times. 
+				Set up a third relation R the relation will include the PK of S and T
+			Crossreference or relationship relation approach
+
+Step 4.
+	Mapping of Binary 1:N relationship Types
+		For each regular binary 1:N relationship 
+			identify relation S that represents participating entity type at N side 
+			Include primary key of other entity type T as foreign key in S
+			Include simple attributes of 1:N relationship type as attribute S
+
+Step 5.
+	Mapping of M:N relationships
+		create a new relation S
+		include Primary key of participating entity types as foreign key attributes in S. Their combination will form the primary key of S
+		Include any simple attributes of M:N relationship type
+
+
+Step 6. 
+	Mapping of Multivalued Attributes
+		For each multivalued attribute A
+			Create a new relation R
+			primary key of R is the combination of A and K where K is the primary key of the entity type that has multivalued attribute
+			If the multivalued attribute is composite, include its simple components
+
+Step 7.
+	Maping of N-ary relationship Types
+		for each n-ary relationship type R
+			create new relation S to represent R
+			include primary keys of participating entity types as foreign keys. The primary key of S is usually a combination of all the foreign keys that reference the relations representing the participating entity types
+			Include any simple attrbiutes as attributes
+
+Step 8.
+	Options for Mappring specialization or generalization
+		Convert each specialization with m subclasses and generalized superclass C, where the attributes of C are {k,a1,a...,an} where k is the PK, into relation schemas using one of the following options 8A through 8D
+
+		Substeps
+			A. multiple relations - superclass and subclasses
+				works for any specialization (total or partial, disjoin or overlapping)
+				Create a relation L for C with attributes Attr(L) = {k,a1,...an} and PK(L) = k. a new relation will be created for every subclass. 
+			
+			B. subclass relations only
+				recommened when sublcasses are total 
+				specialization has disjointness constraint
+				createa a relation L for each subclass with the attributes 
+
+			C. Single relation with one type attribute
+				indicated subclass which each typle belongs if any
+				Good for cases where subcasses disjoint
+					Potential for generating many NULL values if many specific attributes exist in teh subclasses
+				Create a single relation L with attributes ATTS(L) U Attributes with all other subclasses and an added type
+
+			D. Single relation with multiple type attributes
+				Subclasses are overlapping types
+				will also work for disjoint specialization
+				Createa  single relation schema L with attributes and a boolean type indicating where a tuple belongs to subclass S
+
+Step 9.
+	Mapping of Union types (categories)
+		Defining superclasses have different keys
+		specify a new key attribute (Surrogate key)
+
+

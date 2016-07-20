@@ -1,0 +1,47 @@
+Test review
+
+Relational data model
+	used most frequently
+	network and hierarchy of entities
+	
+Physical Data model
+	Access Path
+		structure that makes the search for particular database records efficient
+	Index
+		Example of an access path
+
+Relational Data model and relational database constraints
+	Relational model
+		introduced after hierachical and network models
+		Based on scholary paper titled A relational model
+		implemented in many systems starting in 1980
+			oracle, DB2, MySQL
+	Rows (tuples)
+	column (attributes of table)
+	
+	Domain: the data type of an attribute`
+		atomic values, where each value is indivisible
+		example:
+			USA_PhoneNumber set of ten-digit numbers 
+	cartesian product
+		similair to set theory cross product
+		{A, B, C} X {A, B, C} = {AA, AB, AC, BA, BC, BC, CA, CB, CC}
+	Flat Relational model
+		Composte/multivalue attributes are not allowed
+	Composite Attribute
+		Attribute made of more then 1 sub attribute
+	Multivalue Attribute
+		potentional to store more then 1 value at a time (etc phone number, hobby)
+	Null values
+		Represent values of attribute sthat may be unknown
+		Meanings
+			value unknown?
+			value exists but is not  available
+			Attribute does not apply to this tuple (also value undefined)
+	Notation
+		Name of relation Schema 
+		dot notation R.A
+			attribute A belongs to R
+				
+		
+		

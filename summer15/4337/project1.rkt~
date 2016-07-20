@@ -1,0 +1,23 @@
+#lang racket
+
+;general algorithm
+;define my-reverse
+;if the list length is 0 then we have reached the end of the list
+;   return nill
+;else
+;    append the reverse of the rest of the list to he first element
+; the rest of the list is defined as all elements that are not the first
+
+(define my-reverse
+  (λ (lst)
+    (if (eq? 0 (length lst)) ;list length is 0 reached end of the list
+        (list) ;return an null list
+        (append (my-reverse (cdr lst)) (list (car lst)))))) ;append reversed last part of the list to the first elemnt of lst
+
+;deep reverse is the same as reverse except nested lists are also reversed
+;(1 2 (3 4)) -> '((4 3) 2 1)
+(define my-deep-reverse
+  (λ (lst)
+    (if (eq? 0 (length lst))
+    (list)
+    (append (my-deep-reverse (cdr lst)) (if (list? (car lst)) (list (my-reverse  (car lst))) (list (car lst)))))) )

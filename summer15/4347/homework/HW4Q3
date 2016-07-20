@@ -1,0 +1,25 @@
+Ship
+	SnamePK Owner
+
+State/Country
+	NamePK Continent Port_nameFK
+
+Sea/Ocean/Lake
+	NamePK Port_NameFK
+
+Ship_type
+	TypePK Tonnage Hull Ship_nameFK
+
+Ship_Movement
+	Ship_NamePK TimePK DatePK Longitude Latitude 
+
+Port
+	State_NamePK Water_Body_NamePK Port_NamePK Ship_nameFK
+
+Port_Vist
+	Ship_namePK Start_datePK End_Date
+
+Ship_at_port
+	Ship_namePK Start_datePK Port_namePK
+
+

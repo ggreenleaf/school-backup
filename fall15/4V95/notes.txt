@@ -1,0 +1,12 @@
+SS synsets
+	definitions of a word(Lexeme). 
+Word nets
+
+Hypernym
+	feline is a hypernym of lion and tiger
+Hyponym
+	Tiger is a hyponym of feline
+
+word sense disambugation 
+
+

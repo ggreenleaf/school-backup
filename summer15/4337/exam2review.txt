@@ -1,0 +1,26 @@
+Chapter 3 (3.1,3.2,3.3)
+
+Language
+	set of strings over an alphabet
+Grammar
+	A formal description / definition of a language
+
+BNF and CFG convert  <---> Extended BNF
+
+Chapter 6
+Example and theory questions on data types.
+
+Chapter 7
+Example and theory on assignment Statements and Expressions
+
+Chapter 8
+Statement-Level control structures
+
+Chapter 9
+Subprograms 9.4, 9.5 Local refrence environments
+InMode, outMode, inOutMode.
+
+Chapter 12
+OOP terms, 
+	ADT Inheritance, Polymorphism
+	

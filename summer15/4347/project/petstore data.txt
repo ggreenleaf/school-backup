@@ -1,0 +1,74 @@
+Pet Store table
+	10,	5555 test1 dr, 555-555-5555,TX, Allen,
+	1,	5555 test2 ln, 666-666-6666, OK, Oklahoma City
+	2,  6060 test3 ln, 111-111-1111, MA, Boston
+	3,   1000 drive st, 000-000-1111, MN, Saint Paul
+	4,   10 park ln, 000-111-1234, TX, Austin
+	5,   2020 fifty st, 010-123-5556, NY, New York
+	6,   3030 ritz ave, 020-543-4443, MA, Salem
+	7,   2133 right st, 013-555-6667, NV, Las Vegas
+	8,   4444 left ln, 182-555-8686,  TN, Memphis
+	9,   1111 broke st, 192-222-5544,  OH, Columbus
+
+Stocks table
+	10, 01, 10
+	10, 02, 20
+	1, 03, 30
+	1, 01, 5
+	2, 05, 10
+	2, 06, 7 
+	3, 77, 8
+	3, 88, 9
+	4, 01, 10
+	3, 22, 11
+	9, 23, 12
+	5, 25, 13
+
+product table
+	01, FIS, TY, 5.00, chest closed,
+	02, DOG, FD, 10.00, senior dog food,
+	03, CAT, TY, 5.00, bells,
+	05, SNK, FD, 4.00, live rat,
+	06, LIZ, AQ, 100.00, 13" x 6" x 8" tank,
+	77, DOG, FD, 15.00, puppy dog food,
+	88, DOG, TY, 3.00, super Xtra large bone,
+	22, CAT, TY, 2.00, cat wand toy,
+	23, FSH, FD, 5.00, fish food,
+	25, CAT, FD, 15.00, wet cat food,
+
+transaction table
+	1, 01, 10, 01-01-2014
+	2, 25, 5,  02-10-2014
+	3, 77, 3,  03-15-2014
+	4, 25, 3,  04-23-2014
+	5, 02, 1,  01-01-2013
+	6, 01, 1,  09-01-2013
+	7, 01, 10, 09-06-2014
+	8, 02, 19, 08-17-2013
+	9, 22, 3, 11-12-2015
+	10, 88, 3, 12-21-2012
+
+employee table
+	1, Booker, Couture, 10.00, cashier
+	2, Lynell, Eisenman, 10.00, cashier
+	3, Brett, Cockburn, 10.00, cashier
+	4, Merlene, Lesniak, 10.00, cashier
+	5, Towanda, Hausman, 12.00, manager
+	6, Dayle, Simmonds, 8.50, cleaning-crew
+	7, Sherman, Stacy, 10.00, cashier
+	8, Candelaria, Desch, 9.55, greeter
+	9, Ardelle, Renegar, 12.00, manager
+	10, Wen, Leyba, 10.00, cashier
+
+employes table
+	1, 1
+	2, 2
+	3, 3
+	4, 1
+	5, 5
+	6, 10
+	7, 6
+	8, 7
+	9, 8
+	10, 10
+

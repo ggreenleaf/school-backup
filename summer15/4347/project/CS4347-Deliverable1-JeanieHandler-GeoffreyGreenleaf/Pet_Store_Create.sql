@@ -1,0 +1,53 @@
+CREATE SCHEMA PET_STORE_INVENTORY;
+
+CREATE TABLE PET_STORE (
+		sid INT NOT NULL,
+        address VARCHAR(100),
+        phone_number VARCHAR(10),
+        state VARCHAR(2),
+        city VARCHAR(20),
+        PRIMARY KEY (sid)
+);
+
+CREATE TABLE EMPLOYEE (
+		eid INT NOT NULL,
+        fname VARCHAR(20),
+        lname VARCHAR(20),
+        pay_rate FLOAT,
+        job_desc VARCHAR(20),
+        PRIMARY KEY (eid)
+);
+
+CREATE TABLE EMPLOYS (
+		eid INT NOT NULL,
+		sid INT NOT NULL,
+        FOREIGN KEY (eid) REFERENCES EMPLOYEE(eid) ON DELETE CASCADE, 
+		FOREIGN KEY (sid) REFERENCES PET_STORE(sid) ON DELETE CASCADE
+);
+
+CREATE TABLE PRODUCT (
+		pid INT NOT NULL,
+        animal_type VARCHAR(3),
+        product_type VARCHAR(2),
+        price FLOAT,
+        pdesc VARCHAR(20),
+        PRIMARY KEY (pid)
+);
+
+CREATE TABLE STOCKS (
+		pid INT NOT NULL,
+        sid INT NOT NULL,
+        quantity INT,
+        FOREIGN KEY (pid) REFERENCES PRODUCT(pid) ON DELETE CASCADE	ON UPDATE CASCADE,
+		FOREIGN KEY (sid) REFERENCES PET_STORE(sid) ON DELETE CASCADE
+);
+
+CREATE TABLE SELLS (
+		tid INT NOT NULL,
+        pid INT NOT NULL,
+        sid INT NOT NULL,
+        tDate DATE,
+        FOREIGN KEY (pid) REFERENCES PRODUCT(pid) ON DELETE CASCADE ON UPDATE CASCADE,
+		FOREIGN KEY (sid) REFERENCES PET_STORE(sid) ON DELETE CASCADE,
+		PRIMARY KEY (tid)
+);

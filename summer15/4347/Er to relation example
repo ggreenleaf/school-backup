@@ -1,0 +1,11 @@
+Event
+	event_id name category gender gold_id silver_id bronze_id venue_id
+
+Belongs_to
+	Athlete_id team_id
+
+Participates_in
+	Athlete_id event_id
+
+team_participates_in
+	team_id event_id place_rank

@@ -1,0 +1,122 @@
+Variable attributes
+name
+	name given to the variable.
+type
+	data type of the variable( int, string, etc...)
+location
+	where in memory the variable is stored
+value
+	the contents of the location with which variable is associated
+
+Binding
+	is association between an entity and an attribute
+		between variable and its type e.g. int i;
+		between an operation and symbal e.g. +, *, /
+	binding time
+		time when binding occurs
+		language design time
+		implementation time
+		compile time
+		load time 
+
+Static and Dynamic Binding
+	Static
+		A binding is static if it first occurs before run time, and remains unchanged throughout execution
+	Dynamic
+		A binding is dynamic if it can change during runtime
+
+Type Binding
+	ex:
+		java int i = 4; //at compile time explicit declared static
+		python x = 4 //infrenced when assigned
+
+
+Explicit
+	program statement used for declaring the types of variables
+
+Implicit
+	default mechanism for specifying types of variables through default conventions
+		+ writability 
+		- reliability 
+
+storage bindings & lifetime
+	allocation getting a cell from some pool of memory
+	delloaction putting cell back into pool of memory
+	lifetime
+		time from allocation to dealloaction of a variable. 
+
+	static
+		bound to memory cells befor execution begins and remains bound to the same memory cell throughout execution
+		+ efficient history-sensitive
+		- lack of flexability
+	
+	stack dynamic
+		storage bindings are created for variables when their declaration statements are elaborated
+			+ allows recursion conserves storage
+			- overhead of allocation and deallocation
+			- sub programs cannot be history sensitive
+			- inefficient references (indirect addressing)
+	Heap dynamic (explicit)
+		allocated and dellocated by explicit directives, specified by the programmer, which take effect during execution
+		referenced only through pointers or references dynamic objects c++ via new and delete
+			+ provides for dynamic storage management
+			- inefficient and unreliable
+	Heap dynamic (implicit)
+		allocation and dellocation caused by assignment statements
+			+ flexibility (generic code)
+			- inefficient, because all attributes are dynamic 
+			- loss of error detection
+
+Scope
+	range of statements over which it is visible
+local variables
+	of a program unit are those that are declared in that unit
+nonlocal variables
+		of a program unit ar ethose that ar evisible in the unit but not declared there
+global 
+	are special category of nonlocal variables
+scope rules
+	language determines how references to names are associated with variables
+
+search process
+	search declarations, first locally, then in increasingly larger enclosing scopes, untill one is found for the given name
+
+scope and lifetime
+names constants
+
+Data types
+	Descriptor
+		is the collection of the attributes of a variable
+	Object
+		an object represents an instance of a user-defined type
+
+	One design issue for all data types What operations are defined and how are they specified?
+
+	primitive data type
+		not defined in terms of other data types
+		Some primitive data types merely reflections of the hardware
+	
+	Others require only a little non-hardware support of their implementation
+
+enumeration types 
+	aids readiblity of a language. 
+
+Record Types
+	heterogeneous aggregate of data elements in which individual elemnts are identified by names
+		Issues
+			What is the syntatctic form of references to the field?
+			Are elliptical references allowed
+
+array type
+	homogeneous aggregate of data elements in which an individual element is identified by its position
+
+Tuple types
+	data type that is similiar to a record
+
+Union types
+
+
+Logic Programming languages
+	
+
+

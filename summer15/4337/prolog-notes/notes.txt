@@ -1,0 +1,56 @@
+Functor/Predicate
+	A symbol that names the relationship
+	Not function or method
+Parameters 
+	an ordered list of parameters
+	Not "anguments"
+
+In SWI-prolog variables start with a capital letters
+
+Antecedent right side of clausal form
+Consquent left side of clausal form
+
+If bob lieks fish and a troute is a fish, then bob likes trout
+	
+	likes(bob, trout) <- likes(bob, fish) and fish(trout)
+
+		Consquent 				Antecedent
+
+	in prolog :- = <-
+
+If AL is Bob's father and violet is Bob's mother and Louis is Bob's grandfather, then Louis is either Al's fater or Violet's father
+
+dad(Louis, Violets) or dad(Louis, Al) <- dad(Al, Bob) 
+											and mom(Violet, bob) 
+											and grandad(Louis, father)
+
+
+Basis for logic programming
+
+Horn clause can have only two forms
+	Headed: single atomic propsition on left side
+
+Unification
+	The process of determing useful values for variables
+	Instantiation: The temporary assigning of values to variables to allow proof
+
+	Proof by contradiction
+
+Example sorting list
+	describe what a sorted list looks like
+	sort(old,new) <- permute(old,new) and sorted(old,new)
+
+	checks all permutations then if their sorted. 
+
+	Can understand math and operators
+
+	gt(X,Y) :- X > Y.
+	same(X,Y) :- X==Y.
+	diff(X,Y) :- X=/=Y.
+
+
+	Green cuts
+		do not modify logical meaning
+	Red cuts 
+		do modify
+				

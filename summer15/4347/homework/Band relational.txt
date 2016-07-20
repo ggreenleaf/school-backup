@@ -1,0 +1,36 @@
+Band
+	NameU, Style
+
+Artist
+	NameU, Voice_Style, Type, Make,Model, Instrument
+
+Concert
+	Venue_NameU, Date, Band_Name
+Fan
+	NameU
+
+Fan_Club
+	NameU, Num_Members, Band_Name, Fan_Name
+
+Album
+	NameU, release_date, Band_Name
+
+Track
+	Track_IDU, Name, Length, Album_Name
+
+Band_Members
+	Band_NameU, Artist_NameU
+
+Fans_Of_Band
+	Band_NameU, Fan_NameU
+
+Concert_Attendence
+	Venue_NameU, DateU, Fan_NameU
+
+
+
+
+
+
+
+

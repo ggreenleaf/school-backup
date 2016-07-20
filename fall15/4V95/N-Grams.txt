@@ -1,0 +1,23 @@
+N-Grams
+	predict next word in a sequence
+
+	I'd like to make a collect ...
+		call
+		iternational
+		collect
+
+	formalize this idea of word prediction with probabilistic models called n_grams, which predict the next word from the previous N-1
+
+	Such models of word sequences are also called language models or LMs
+
+
+	Following sequence, for example, has a non-zero probability
+
+		all of a sudden I notice three guys standing on the sidewalk ...
+
+	While this same set has a very low
+		on guys all I of notice sidewalk three a sudden standing the ...
+
+
+Augmentative communication 
+	systems that can predict words that may come next in the sentance.

@@ -1,0 +1,37 @@
+EER Model
+	subclasses and superclasses
+	Specialization and generalization
+	category or union types
+
+Specialization
+	process of defining a set of subclasses of an entity type
+	Defined on the basis of some distinguishing charactersitic the entites in the superclass
+		a superclass can have more than one subclass based on different criteria
+
+	Subclass can define
+		Specific (local) attributes
+			-pay_scale attribute is specific to hourly employee subclass
+		Specific relationship types
+			-hourly employee sublcass participates in belongs_to relationship
+
+in disjoint relationships a entity must only belong to one subgroup. 
+certain attributes may only belong to a subclass
+	- employee secretary may have  typing speed
+		while a engineer may habe eng_type
+
+Generalizations
+	decide which attributes belong to subclass vs superclass
+Disjointness
+	specifies the sublcasses must be disjoint
+	indicated by a d symbol in inside the specialization sircle
+Completeness
+	total specialization, Every entity in the superclass must be a member of at least one subclass
+	partial specialization
+		allows an entity not belong to any of the subclass
+
+hierarchy
+	every sublcass participates as a subclass in only one relationship
+	single inheratince
+
+lattice
+	every subclass participates as a subclass in multiple relationships

@@ -1,0 +1,39 @@
+#lang racket
+
+;reverses first list
+(define my-append
+  (λ (listA listB)
+    (if (null? listA)
+        listB
+        (my-append (cdr listA) (cons (car listA) listB)))))
+
+
+(define my-last
+  (λ (lst)
+     (if (null? (cdr lst))
+         (car lst)
+         (my-last (cdr lst)))))
+
+;currently works on 2 or longer lists
+;(define next-to-last
+;  ( λ (lst)
+;     (if (null? (cddr lst))
+;         (car lst)
+;         (next-to-last (cdr lst)))))
+(define next-to-last
+  ( λ (lst)
+     (if (null? (cdr lst))
+         (print "List to short")
+         (if (null? (cddr lst))    
+             (car lst)
+             (next-to-last (cdr lst))))))
+
+(define foo
+  (λ (x)
+    (cond
+      ((= x 3) (display "x is three"))
+      ((> x 3) (display "x is greater then 3"))
+      ((< x 3) (display "x is less then 3"))
+    )
+  )
+)

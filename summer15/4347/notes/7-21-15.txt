@@ -1,0 +1,220 @@
+Semantics of a relation
+	Meaning resulting form ainterpretation of attribute values in a tuple
+
+Update anomalies
+	Insertion anomalies
+	Deletion Anomalies
+
+Null values in Tuples
+	problems
+		wasted storage space
+		problems understanding meaning
+		aggregate functions
+		select and joni operations that involve comparisons
+	multiple interpretations of NULL
+		attribute does not apply
+		may not no attribute
+	Avoid placing attributes in a base relation whose values may frequently be NULL
+
+	If unavoidable:
+		make sure that they apply in exceptional cases only, not to a majority of tuples
+
+	Functional Depedencies
+
+		Formal tool for analysis of relational schemas
+		enables us to detect and describe some of the above-mentioned problems in precise terms
+
+		X -> Y
+			Y is functional depedent on X
+		
+		X is a subset of attributes of a relation R, Y is another subset of attributes of the same relation R
+
+		values of Y component of a tuple in r depend on or are determined by the values of X component.
+
+		values of X component of a tuple uniquely determine the values of Y component.
+
+		There is a functional dependency from X to Y or that Y is functionally dependent on X. 
+
+		Normalization of Relations
+			takes a relation schema through a series of tests
+				-certify whether it satisfies a certain normal form
+				
+				-proeeds in a top-down fashion
+				
+				-Normalization of data can be considered a process of analyzing hte given relation schemas based on their FDs and primary keys to achieve the desirable properties of 
+					minimizing redundancy
+					minimizing the insertion, deletion, and update anomalies
+
+		First Normal Form (1NF)
+			part of the formal definition of a relation in basic relational model
+
+			Only attribute values permitted are single atomic values
+
+			techniques to achieve first normal form
+					remove attribute and place in separate relation
+					expand the key
+					use several atomic attributes
+
+			Solution
+				remove the attribute that violates 1NF and place in separate relation. The PK of this relation is the combination 
+
+			Solution 2
+				Expand the key so that there will be a separate tuple in the original relation for each location in the relation
+			
+			Solution 3
+				If a max, number of values is known for the attribute, if it is known that at most 3 locations can exist for a department - replace the attribute by 3 atomic attributes
+				example Dlocation1 Dlocation2 Dlocation3
+
+		Full functional Dependency
+			A functional dependency X -> Y is a full functional dependency if removal of any attribute A from X 
+				left hand side has more then one attribute
+
+		Second Normal Form (2NF)
+			A relation schema R is 2NF if every nonprime attribute A in R is fully functionally dependent on the primary key R
+			The test for 2NF involves testing for functional dependencies whose left-hand side attributes are part of the primary key.
+
+				No partial dependencies on a key should exist; While RHS is a non prime attribute of R, the LHS should not contain any part of the primary key
+
+			IF a relation schema is not in 
+
+		Transitive Dependency
+			A functional dependency X -> Y in a relation schema R is a transitive dependency if there exists a set of attributes Z in R that is neither a cndidate key nor a subset of any key of R, and both X -> Z and Z -> Y hold
+
+			FD1 - Ssn-> {Ename, Bdate, Address, Dnumber}
+			FD2 - Dumber -. {Dname, Dempr_ssn}
+
+			then
+
+				ssn -> Demp_ssn
+				Ssn -> Dname
+
+Transaction processing
+	Concurrency
+		-interleaved processing
+			concurrent execution of processes is interleaved in a single CPU
+		-Parallel 
+			Processes are concurrently executed in multiple CPUs
+
+	Transaction
+		Logical unit of database processing that includes one or more access operations
+			read 
+			write
+			delete
+
+		may be standalone specified in a high level language liek SQL submitted interactively, or may be embedded within a program.
+
+		An application program may contain several transactions spearated by the Begin and End transaction boundries
+
+		Read
+
+		Write
+			Find address of the disk block that contains X
+			copy block into buffer 
+			copy item X from program into its location in the buffer
+
+	Serial execution wastes idle CPU time
+	We need to run transactions ina  interleaved fashion for better performance
+
+	If two or more transactiosn execute confurrently, some problems will occur.
+		The Lost update problem
+		The temporary update problem
+		The incorrect Summary Problem
+		The Unrepeatable Read problem
+
+	Temprorary Update Problem
+		occurs when one transaction updates a database item and then the transaction fails for some reason
+		The system must change X back to its original value
+		The updated item X is accessed by another transaction before it is changed back toits original value
+
+	Incorrect Summary
+		If one transaction is calculating an aggregate sum function on a number of records while other transactions are updating some of these recrods, the aggregate function may calculate some values before they are updated and others after they are updated. 
+
+	The Unrepeateable Read problem
+		A transaction T reads the same item twice and teh item is changed by another transaction T between the two reads. Hence, T receives different values for its two reads of the same item. 
+			Ex. During an airline reservation transaction, a customer inquires about seat availability on several flights. When the customer decides on a particular flight, the transaction then reads teh number of seats on that flight again. 
+
+	Abort and Recovery
+		Computer failure
+		local errors
+		concurrency control enforcement
+		disk failure
+		physical problems and catastophes
+
+	transaction States
+		Active
+		partially commited
+		commited
+		failed
+		terminated
+
+	ACID properties of Transactions
+	Atomicity
+		transaction is an atomic unit of processing
+	Consistency preservation
+		a correct execution of the transaction must take the database from one consistent state to another
+	Isolation
+		A transaction should not make its updates visible to other transactions until...
+	Durability or permanency
+
+	Conflicts
+		Two operations in a schedule are said to conflict if they satisfy all conditions
+			They belong to different transctions
+			they access the same item X
+			At least one of the operations is a write operation
+
+	Characterizing schedules based on recoverability
+		recoverable scheule
+		cascadeless schedule
+		schedules requiring cascaded rollback
+		strict schedules
+
+	Sa : r(X); r2(X); W(X); R(Y); W2(X); c2; w(Y); c1;
+
+		re written as
+			T1				T2
+			r(X)
+							R2(X)
+			W(X)
+			R(Y)
+							W2(X)
+							C2
+			w(Y)
+			C1
+
+
+	recoverable
+		is a schedule where no transaction needs to be rolled back
+		A schedule S is recoverable if no transaction T in S commmits
+		until all transactions T that have written an item that T reads have committed
+	
+		if T1 aborts before committing then T2 should also abort as shown in S because the value of XT2 read is no longer valid
+
+	Cascading rollback
+		a schedule in which uncommitted transactions that read an item from a failed transaction must be rolled back.
+
+		In schedule S transaction T has to be rolled back because it read item X from T1 and T1 then aborted
+
+	Cascadeless schedule
+		One where every transaction reads only the items that are written by committed transactions
+			R2(X) command in schedules must be postponed
+
+	Serial schedule
+		for every transaction  all the operations of T are executed consecutively in the schedule.
+
+	Serializable schedule
+		The type of schedules that are always considered to be correct when concurrent transactions are executing
+		A schedule S is serializable if it is equivalent to some serial schedule of the same n transactions
+
+	Serial and Nonserial
+		result equivalent
+			two schedules are result equivalent if they produce the same fina state of the database
+			However two different schedules may accidentally produce different results
+
+		conflict equivalent
+			Two schedules are said to be conflict equivalent if the order of any two conflicting operations is the same in both 
+
+			If two conflicting operations are applied in different orders in two schedules the effect can be different. 
+
+
+
+			
